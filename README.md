@@ -14,6 +14,9 @@ MySql - Database
 
 Scope of the System:
 
+Database:
+As of now I have only one table: 'Crime' with 4 columns namely id(PK,NN), crimeRegion, crimeType, suspectDetials.
+
 Goal of the project is to build an End-End Web Application which can save and retrieve the data, I'm using a single table as of now called 'Crime' which lets the user to see currently reported crimes and also allow them to add a new crime. 
 
 Front End:
