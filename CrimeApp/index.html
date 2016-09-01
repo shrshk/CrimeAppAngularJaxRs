@@ -1,0 +1,87 @@
+<!doctype html>
+<html ng-app="HelloUserApp">
+<head>
+    <title>My Angular App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<style>
+table, th, td {
+border: 1px solid black;
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+</style>
+<h1>Currently Reported Crimes</h1>
+<body ng-controller="HelloUserController">
+  <div>{{message}}</div>
+  <div >
+      <table style="width:80%">
+          <br/>
+          <tr>
+              <th>Number</th>
+              <th>Region</th>
+              <th>Type</th>
+              <th>SuspectDetails</th>
+          </tr>
+          <tr ng-repeat="crime in crimes">
+              <td>{{crime.id}}</td>
+               <td>{{crime.crimeRegion}}</td>
+              <td>{{crime.crimeType}}</td>
+              <td>{{crime.suspectDetails}}</td>
+          </tr>
+      </table>
+  </div>
+  <div>
+      <form>
+          <div>
+                  <button ng-click="addNew()" ng-disabled="newCrime" class="btn btn-primary btn-sm">
+                  <span class="glyphicon glyphicon-plus"></span> Add Crime </button>
+          </div>
+      </form>
+      <form id="main" ng-show="newCrime">
+          <table>
+              <tr>
+                  <td><label for="id">ID:</label></td>
+              </tr>
+              <tr>
+                  <td><input id="id" type="text" ng-model="crime.id" size="10"></td>
+              </tr>
+              <tr>
+                  <td><label for="crimeRegion">crimeRegion:</label></td>
+              </tr>
+              <tr>
+                  <td><input id="crimeRegion" type="text" ng-model="crime.crimeRegion" size="30"></td>
+              </tr>
+              <tr>
+                  <td><label for="crimeType">crimeType:</label></td>
+              </tr>
+              <tr>
+                  <td><input id="crimeType" type="text" ng-model="crime.crimeType" size="30"></td>
+              </tr>
+              <tr>
+                  <td><label for="suspectDetails">suspectDetails:</label></td>
+              </tr>
+              <tr>
+                  <td><input id="suspectDetails" type="text" ng-model="crime.suspectDetails" size="30"></td>
+              </tr>
+              <tr>
+                  <td>
+                      <table>
+                          <tr>
+                              <td><button ng-click="addCrime()" class="btn btn-success btn-sm" title="Save crime details...">
+                                  <span class="glyphicon glyphicon-plus"></span> Save </button></td>
+                          </tr>
+                      </table>
+                  </td>
+              </tr>
+
+
+          </table>
+      </form>
+  </div>
+</body>
+
+</html>
